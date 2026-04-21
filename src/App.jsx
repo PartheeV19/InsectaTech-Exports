@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Products from './pages/Products';
 import Contact from './pages/Contact';
+import Connect from './pages/Connect';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -19,8 +20,32 @@ function ScrollToTop() {
   return null;
 }
 
+function AppLayout({ loading }) {
+  const { pathname } = useLocation();
+  const isConnectPage = pathname === '/connect';
+
+  return (
+    <>
+      <ScrollToTop />
+      {!isConnectPage && loading && <Preloader />}
+      {!isConnectPage && <Navbar />}
+      <main className={isConnectPage ? 'app-main-connect' : ''}>
+        <Routes>
+          <Route path="/" element={<Home isPreloading={loading} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/connect" element={<Connect />} />
+        </Routes>
+      </main>
+      {!isConnectPage && <Footer />}
+      {!isConnectPage && <WhatsAppButton />}
+    </>
+  );
+}
+
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => window.location.pathname !== '/connect');
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -39,10 +64,12 @@ function App() {
     }
     requestAnimationFrame(raf);
 
-    // Initial preloader logic
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2500);
+    let timer;
+    if (window.location.pathname !== '/connect') {
+      timer = setTimeout(() => {
+        setLoading(false);
+      }, 2500);
+    }
 
     return () => {
       lenis.destroy();
@@ -52,19 +79,7 @@ function App() {
 
   return (
     <Router>
-      <ScrollToTop />
-      {loading && <Preloader />}
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home isPreloading={loading} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </main>
-      <Footer />
-      <WhatsAppButton />
+      <AppLayout loading={loading} />
     </Router>
   );
 }
