@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +16,17 @@ const Navbar = () => {
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
+
+  const handleGetQuote = () => {
+    navigate('/contact');
+    closeMenu();
+    setTimeout(() => {
+      const form = document.getElementById('contact-form');
+      if (form) {
+        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 100);
+  };
 
   return (
     <>
@@ -35,7 +47,7 @@ const Navbar = () => {
             <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>About</NavLink>
             <NavLink to="/products" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Products</NavLink>
             <NavLink to="/contact" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Contact</NavLink>
-            <NavLink to="/contact" className="nav-cta">Get a Quote</NavLink>
+            <button onClick={handleGetQuote} className="nav-cta">Get a Quote</button>
           </div>
 
           <div className={`nav-hamburger ${menuOpen ? 'open' : ''}`} onClick={toggleMenu} aria-label="Toggle menu">
@@ -51,7 +63,7 @@ const Navbar = () => {
         <NavLink to="/about" onClick={closeMenu}>About</NavLink>
         <NavLink to="/products" onClick={closeMenu}>Products</NavLink>
         <NavLink to="/contact" onClick={closeMenu}>Contact</NavLink>
-        <NavLink to="/contact" className="btn btn-primary" style={{ marginTop: '20px' }} onClick={closeMenu}>Get a Quote</NavLink>
+        <button onClick={handleGetQuote} className="btn btn-primary" style={{ marginTop: '20px' }}>Get a Quote</button>
       </div>
     </>
   );

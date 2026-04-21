@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useScrollReveal from '../hooks/useScrollReveal';
 
 const Products = () => {
   useScrollReveal();
   const { hash } = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (hash) {
@@ -18,10 +19,22 @@ const Products = () => {
   }, [hash]);
 
   const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 500);
+  };
+
+  const handleRequestQuote = () => {
+    navigate('/contact');
+    setTimeout(() => {
+      const form = document.getElementById('contact-form');
+      if (form) {
+        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 100);
   };
 
   return (
@@ -195,7 +208,7 @@ const Products = () => {
             <h2 className="cta-heading reveal">Interested in <br /><em>Our Products?</em></h2>
             <p className="cta-text reveal stagger-1">Get detailed product specifications, pricing, and minimum order quantities. Our export team is ready to assist you.</p>
             <div className="reveal stagger-2" style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link to="/contact" className="btn btn-white">Request a Quote <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></Link>
+              <button onClick={handleRequestQuote} className="btn btn-white" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>Request a Quote <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
               <a href="mailto:info@insectatechexports.com" className="btn btn-white-outline">Email Us Directly</a>
             </div>
           </div>

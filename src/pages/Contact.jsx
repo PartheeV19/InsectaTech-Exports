@@ -48,7 +48,7 @@ const Contact = () => {
               </div>
               <div>
                 <h4>Call Us</h4>
-                <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                <p><a href="tel:+917396600115">+91 73966 00115</a></p>
               </div>
             </div>
             <div className="contact-info-card reveal stagger-3">
@@ -81,7 +81,7 @@ const Contact = () => {
               <h2 className="section-heading reveal" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)' }}>Get in <span className="text-accent">Touch</span></h2>
               <p className="reveal stagger-1" style={{ marginBottom: '32px', color: 'var(--color-text-secondary)' }}>Fill out the form below and our export team will respond within 24 business hours.</p>
 
-              <form onSubmit={handleSubmit} className="reveal stagger-2">
+              <form id="contact-form" onSubmit={handleSubmit} className="reveal stagger-2">
                 <div className="form-grid">
                   <div className="form-group">
                     <label htmlFor="firstName">First Name *</label>
