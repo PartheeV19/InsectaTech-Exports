@@ -5,6 +5,30 @@ import useScrollReveal from '../hooks/useScrollReveal';
 const Contact = () => {
   useScrollReveal();
   const [formStatus, setFormStatus] = useState('idle');
+  const [countryCode, setCountryCode] = useState('+91');
+
+  const countryCodes = [
+    { code: '+91',  flag: '🇮🇳', name: 'India' },
+    { code: '+1',   flag: '🇺🇸', name: 'USA' },
+    { code: '+44',  flag: '🇬🇧', name: 'UK' },
+    { code: '+61',  flag: '🇦🇺', name: 'Australia' },
+    { code: '+49',  flag: '🇩🇪', name: 'Germany' },
+    { code: '+33',  flag: '🇫🇷', name: 'France' },
+    { code: '+39',  flag: '🇮🇹', name: 'Italy' },
+    { code: '+81',  flag: '🇯🇵', name: 'Japan' },
+    { code: '+86',  flag: '🇨🇳', name: 'China' },
+    { code: '+971', flag: '🇦🇪', name: 'UAE' },
+    { code: '+966', flag: '🇸🇦', name: 'Saudi Arabia' },
+    { code: '+65',  flag: '🇸🇬', name: 'Singapore' },
+    { code: '+60',  flag: '🇲🇾', name: 'Malaysia' },
+    { code: '+62',  flag: '🇮🇩', name: 'Indonesia' },
+    { code: '+27',  flag: '🇿🇦', name: 'South Africa' },
+    { code: '+55',  flag: '🇧🇷', name: 'Brazil' },
+    { code: '+52',  flag: '🇲🇽', name: 'Mexico' },
+    { code: '+7',   flag: '🇷🇺', name: 'Russia' },
+    { code: '+82',  flag: '🇰🇷', name: 'South Korea' },
+    { code: '+31',  flag: '🇳🇱', name: 'Netherlands' },
+  ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,9 +54,9 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="section" style={{ paddingTop: 'clamp(40px, 5vw, 60px)' }}>
+      <section className="section" style={{ paddingTop: 'clamp(20px, 3vw, 32px)', paddingBottom: '0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '20px', marginBottom: 'clamp(40px, 6vw, 80px)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '20px', marginBottom: 'clamp(24px, 3vw, 40px)' }}>
             <div className="contact-info-card reveal stagger-1">
               <div className="info-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -97,7 +121,37 @@ const Contact = () => {
                   </div>
                   <div className="form-group">
                     <label htmlFor="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" placeholder="+1 234 567 8900" />
+                    <div className="phone-field">
+                      <div className="phone-code-wrapper">
+                        <select
+                          id="phoneCountryCode"
+                          name="phoneCountryCode"
+                          value={countryCode}
+                          onChange={e => setCountryCode(e.target.value)}
+                          aria-label="Country dial code"
+                        >
+                          {countryCodes.map(c => (
+                            <option key={c.code + c.name} value={c.code}>
+                              {c.flag} {c.code}
+                            </option>
+                          ))}
+                        </select>
+                        <svg className="phone-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12"><polyline points="6 9 12 15 18 9"/></svg>
+                      </div>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="000 000 0000"
+                        className="phone-number-input"
+                        inputMode="numeric"
+                        pattern="[0-9\s]*"
+                        onKeyDown={e => {
+                          const allowed = ['Backspace','Delete','Tab','ArrowLeft','ArrowRight','Home','End'];
+                          if (!allowed.includes(e.key) && !/^[0-9\s]$/.test(e.key)) e.preventDefault();
+                        }}
+                      />
+                    </div>
                   </div>
                   <div className="form-group">
                     <label htmlFor="company">Company Name</label>

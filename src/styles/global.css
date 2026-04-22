@@ -523,6 +523,15 @@ p { font-size: clamp(0.95rem, 1.1vw, 1.1rem); color: var(--color-text-secondary)
 .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 14px 18px; font-family: var(--font-body); font-size: 0.95rem; color: var(--color-text); background: var(--color-white); border: 1.5px solid var(--color-border); border-radius: var(--radius-md); outline: none; transition: all 0.3s ease; }
 .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--color-accent); box-shadow: 0 0 0 4px var(--color-accent-pale); }
 .form-group textarea { min-height: 140px; resize: vertical; }
+
+/* Phone field — country code dropdown + number input */
+.phone-field { display: flex; align-items: stretch; border: 1.5px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; background: var(--color-white); transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+.phone-field:focus-within { border-color: var(--color-accent); box-shadow: 0 0 0 4px var(--color-accent-pale); }
+.phone-code-wrapper { position: relative; display: flex; align-items: center; flex-shrink: 0; border-right: 1.5px solid var(--color-border); background: var(--color-white); transition: background 0.3s ease; }
+.phone-code-wrapper:hover { background: var(--color-bg-alt); }
+.phone-code-wrapper select { appearance: none; -webkit-appearance: none; border: none !important; outline: none !important; box-shadow: none !important; background: transparent; padding: 14px 26px 14px 10px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 400; color: var(--color-text); cursor: pointer; width: 100%; min-width: 0; transition: color 0.3s ease; }
+.phone-chevron { position: absolute; right: 7px; top: 50%; transform: translateY(-50%); pointer-events: none; stroke: var(--color-text-muted); fill: none; stroke-width: 2; }
+.phone-number-input { flex: 1; border: none !important; outline: none !important; box-shadow: none !important; border-radius: 0 !important; padding: 14px 18px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 400; color: var(--color-text); background: transparent; }
 .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(40px, 6vw, 80px); }
 .contact-info-card { display: flex; gap: 16px; padding: 24px; background: var(--color-bg-alt); border-radius: var(--radius-md); margin-bottom: 16px; transition: all 0.3s ease; }
 .contact-info-card:hover { background: var(--color-accent-pale); transform: translateX(4px); }
