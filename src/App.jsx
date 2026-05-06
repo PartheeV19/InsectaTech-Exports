@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import Preloader from './components/Preloader';
+import AnnouncementBanner from './components/AnnouncementBanner';
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -29,6 +30,8 @@ function AppLayout({ loading }) {
       <ScrollToTop />
       {!isConnectPage && loading && <Preloader />}
       {!isConnectPage && <Navbar />}
+      {/* Announcement banner — shows on home page after preloader */}
+      {pathname === '/' && <AnnouncementBanner show={!loading} />}
       <main className={isConnectPage ? 'app-main-connect' : ''}>
         <Routes>
           <Route path="/" element={<Home isPreloading={loading} />} />
