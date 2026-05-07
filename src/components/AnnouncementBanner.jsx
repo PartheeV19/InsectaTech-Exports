@@ -30,7 +30,7 @@ const AnnouncementBanner = ({ show }) => {
           </svg>
         </button>
         <div className="announcement-image-wrapper">
-          <img src="/banner1.png" alt="InsectaTech Exports — Indian Mango Exports 2026" />
+          <img src="/banner1.avif" alt="InsectaTech Exports — Indian Mango Exports 2026" />
         </div>
       </div>
     </div>
