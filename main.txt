@@ -1,0 +1,5 @@
+Priority 1
+Fix JS rendering — enable SSR or pre-rendering
+Your entire site content is invisible to Googlebot because it's rendered by JavaScript. This single issue blocks all other SEO efforts. Everything else you do will have zero impact until this is fixed.
+If your site is Next.js: switch pages from CSR to getServerSideProps or getStaticProps. If it's plain React: integrate Prerender.io or use a static-site generator. Ask your developer to verify using Google Search Console's URL Inspection tool — it shows exactly what Google sees.
+Priority 2

@@ -1,0 +1,301 @@
+
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-sans);color:var(--color-text-primary);}
+  .tab-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.25rem;}
+  .tab-btn{font-size:12px;padding:5px 12px;border:0.5px solid var(--color-border-secondary);background:var(--color-background-primary);border-radius:var(--border-radius-md);cursor:pointer;color:var(--color-text-secondary);white-space:nowrap;}
+  .tab-btn.active{background:var(--color-background-secondary);color:var(--color-text-primary);font-weight:500;border-color:var(--color-border-primary);}
+  .tab-pane{display:none;} .tab-pane.active{display:block;}
+  .card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;margin-bottom:10px;}
+  .card-title{font-size:14px;font-weight:500;margin-bottom:4px;display:flex;align-items:center;gap:8px;}
+  .card-body{font-size:13px;color:var(--color-text-secondary);line-height:1.6;}
+  .fix-box{margin-top:8px;background:var(--color-background-info);border-radius:var(--border-radius-md);padding:8px 12px;font-size:12px;color:var(--color-text-info);line-height:1.5;}
+  .badge{font-size:11px;padding:2px 8px;border-radius:var(--border-radius-md);font-weight:500;}
+  .b-red{background:var(--color-background-danger);color:var(--color-text-danger);}
+  .b-amber{background:var(--color-background-warning);color:var(--color-text-warning);}
+  .b-green{background:var(--color-background-success);color:var(--color-text-success);}
+  .b-blue{background:var(--color-background-info);color:var(--color-text-info);}
+  .b-purple{background:#EEEDFE;color:#3C3489;}
+  .section-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-secondary);margin:1.25rem 0 .6rem;}
+  .kw-tag{display:inline-block;font-size:12px;padding:3px 9px;border-radius:16px;border:0.5px solid var(--color-border-secondary);margin:3px;color:var(--color-text-primary);background:var(--color-background-secondary);}
+  .meta-block{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px;margin-top:8px;font-size:12px;line-height:1.6;}
+  .meta-block .mt{color:var(--color-text-info);font-weight:500;}
+  .meta-block .md{color:var(--color-text-secondary);}
+  .phase-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:0.5px solid var(--color-border-tertiary);}
+  .phase-row:last-child{border-bottom:none;}
+  .phase-num{min-width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;background:var(--color-background-secondary);color:var(--color-text-primary);}
+  .cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:8px;margin-bottom:1rem;}
+  .cat-card{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px;text-align:center;}
+  .cat-icon{font-size:20px;margin-bottom:4px;}
+  .cat-name{font-size:11px;font-weight:500;color:var(--color-text-primary);}
+  .cat-kw{font-size:10px;color:var(--color-text-secondary);margin-top:2px;}
+  .prompt-btn{margin-top:10px;padding:7px 14px;font-size:12px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:var(--color-background-primary);cursor:pointer;color:var(--color-text-primary);}
+</style>
+
+<div style="padding:1rem 0;">
+
+  <div style="margin-bottom:1.25rem;">
+    <div style="font-size:20px;font-weight:500;margin-bottom:4px;">InsectaTech Exports — Full SEO Strategy</div>
+    <div style="font-size:13px;color:var(--color-text-secondary);">6 product categories · B2B export · India → Global</div>
+  </div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="show('tech')">⚙️ Technical fixes</button>
+    <button class="tab-btn" onclick="show('pages')">📄 Page structure</button>
+    <button class="tab-btn" onclick="show('keywords')">🔍 Keywords</button>
+    <button class="tab-btn" onclick="show('meta')">🏷️ Meta templates</button>
+    <button class="tab-btn" onclick="show('content')">✍️ Content plan</button>
+    <button class="tab-btn" onclick="show('links')">🔗 Link building</button>
+    <button class="tab-btn" onclick="show('roadmap')">🗓️ Roadmap</button>
+  </div>
+
+  <!-- TECHNICAL -->
+  <div id="tech" class="tab-pane active">
+    <div class="card">
+      <div class="card-title"><span class="badge b-red">Priority 1</span> Fix JS rendering — enable SSR or pre-rendering</div>
+      <div class="card-body">Your entire site content is invisible to Googlebot because it's rendered by JavaScript. This single issue blocks all other SEO efforts. Everything else you do will have zero impact until this is fixed.</div>
+      <div class="fix-box">If your site is Next.js: switch pages from CSR to <code>getServerSideProps</code> or <code>getStaticProps</code>. If it's plain React: integrate Prerender.io or use a static-site generator. Ask your developer to verify using Google Search Console's URL Inspection tool — it shows exactly what Google sees.</div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="badge b-red">Priority 2</span> Submit sitemap to Google Search Console</div>
+      <div class="card-body">Create /sitemap.xml listing every page (home, about, all 6 category pages, each product page, contact). Verify ownership in GSC and submit. This tells Google exactly what to crawl.</div>
+      <div class="fix-box">Go to <strong>search.google.com/search-console</strong> → Add Property → insectatechexports.com → Sitemaps → Submit sitemap URL</div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="badge b-red">Priority 3</span> Add JSON-LD schema markup on every page</div>
+      <div class="card-body">Add Organization schema on homepage, Product schema on product pages, and BreadcrumbList on all inner pages. This enables rich results and business knowledge panels.</div>
+      <div class="fix-box">Minimum schema for homepage: Organization (name, url, logo, address, sameAs LinkedIn/IndiaMART). For each product page: Product (name, description, offers, image). Test at <strong>search.google.com/test/rich-results</strong></div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="badge b-amber">Priority 4</span> Canonical tags + robots.txt</div>
+      <div class="card-body">Add a robots.txt at insectatechexports.com/robots.txt and canonical tags on every page to prevent duplicate content issues between www and non-www versions.</div>
+      <div class="fix-box">Add <code>&lt;link rel="canonical" href="https://insectatechexports.com/page/"&gt;</code> in the <code>&lt;head&gt;</code> of every page. In robots.txt, add: <code>Sitemap: https://insectatechexports.com/sitemap.xml</code></div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="badge b-amber">Priority 5</span> Page speed &amp; Core Web Vitals</div>
+      <div class="card-body">Run PageSpeed Insights on your homepage. Target LCP under 2.5s and CLS under 0.1. Compress images to WebP format, use lazy loading, and minimize unused JavaScript bundles.</div>
+      <div class="fix-box">Test at: <strong>pagespeed.web.dev</strong> — share the score with your developer and ask them to address the top 3 recommendations.</div>
+    </div>
+  </div>
+
+  <!-- PAGE STRUCTURE -->
+  <div id="pages" class="tab-pane">
+    <div class="card-body" style="margin-bottom:1rem;font-size:13px;color:var(--color-text-secondary);line-height:1.6;">Your site needs a clear URL architecture that Google can crawl and users can navigate. Here's the ideal structure for your 6-category export business:</div>
+
+    <div class="section-label">Recommended URL structure</div>
+    <div class="card" style="font-family:var(--font-mono);font-size:12px;line-height:2;color:var(--color-text-secondary);">
+      <span style="color:var(--color-text-info);">insectatechexports.com/</span><br>
+      ├── <span style="color:var(--color-text-primary);">agri-commodities/</span><br>
+      │&nbsp;&nbsp;&nbsp;├── rice-ddgs/<br>
+      │&nbsp;&nbsp;&nbsp;├── maize-ddgs/<br>
+      │&nbsp;&nbsp;&nbsp;└── [grain / spice / pulse pages]<br>
+      ├── <span style="color:var(--color-text-primary);">animal-feed-ingredients/</span><br>
+      │&nbsp;&nbsp;&nbsp;├── bsfl-products/ → link to BSFL company<br>
+      │&nbsp;&nbsp;&nbsp;└── ddgs-feed-grade/<br>
+      ├── <span style="color:var(--color-text-primary);">textiles/</span><br>
+      ├── <span style="color:var(--color-text-primary);">healthcare-products/</span><br>
+      ├── <span style="color:var(--color-text-primary);">industrial-goods/</span><br>
+      ├── <span style="color:var(--color-text-primary);">bio-energy/</span><br>
+      │&nbsp;&nbsp;&nbsp;├── biochar/<br>
+      │&nbsp;&nbsp;&nbsp;└── bio-pellets/<br>
+      ├── about-us/<br>
+      ├── certifications/<br>
+      ├── blog/<br>
+      └── contact/
+    </div>
+
+    <div class="section-label">Must-have pages (currently missing)</div>
+    <div class="card">
+      <div class="card-title"><span class="badge b-red">Missing</span> Certifications page</div>
+      <div class="card-body">A dedicated /certifications/ page listing FSSAI, IEC, APEDA, MPEDA, EEPC, Agmark with certificate images. Buyers verify credentials before contacting — this page converts and ranks for "[company name] certified exporter" queries.</div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="badge b-red">Missing</span> Individual product pages</div>
+      <div class="card-body">Each product needs its own page with: product name (H1), specs/grades, minimum order quantity, packaging, applications, and a quote request CTA. This is where 80% of your SEO traffic will come from.</div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="badge b-amber">Missing</span> Why InsectaTech / USP page</div>
+      <div class="card-body">A page explaining your differentiators — sustainability focus, 30+ products, multi-sector expertise, BSFL parent company, Indian heritage — helps buyers choose you over generic exporters.</div>
+    </div>
+  </div>
+
+  <!-- KEYWORDS -->
+  <div id="keywords" class="tab-pane">
+    <div class="cat-grid">
+      <div class="cat-card"><div class="cat-icon">🌾</div><div class="cat-name">Agri</div><div class="cat-kw">grains, spices, pulses</div></div>
+      <div class="cat-card"><div class="cat-icon">🐄</div><div class="cat-name">Animal Feed</div><div class="cat-kw">DDGS, BSFL, meal</div></div>
+      <div class="cat-card"><div class="cat-icon">🧵</div><div class="cat-name">Textiles</div><div class="cat-kw">fabric, yarn, garments</div></div>
+      <div class="cat-card"><div class="cat-icon">💊</div><div class="cat-name">Healthcare</div><div class="cat-kw">pharma, wellness</div></div>
+      <div class="cat-card"><div class="cat-icon">⚙️</div><div class="cat-name">Industrial</div><div class="cat-kw">minerals, goods</div></div>
+      <div class="cat-card"><div class="cat-icon">⚡</div><div class="cat-name">Bio-energy</div><div class="cat-kw">biochar, pellets</div></div>
+    </div>
+
+    <div class="section-label">Agri commodities</div>
+    <div><span class="kw-tag">rice DDGS exporter India</span><span class="kw-tag">maize DDGS supplier India</span><span class="kw-tag">Indian spice exporter bulk</span><span class="kw-tag">pulses export from India</span><span class="kw-tag">agri commodity exporter Hyderabad</span></div>
+
+    <div class="section-label">Animal feed ingredients</div>
+    <div><span class="kw-tag">DDGS animal feed India export</span><span class="kw-tag">BSF protein meal supplier</span><span class="kw-tag">insect protein exporter India</span><span class="kw-tag">distillers grain export India</span><span class="kw-tag">poultry feed ingredient supplier India</span></div>
+
+    <div class="section-label">Textiles & garments</div>
+    <div><span class="kw-tag">Indian textile exporter B2B</span><span class="kw-tag">cotton fabric export India</span><span class="kw-tag">garment manufacturer exporter India</span><span class="kw-tag">yarn export India wholesale</span></div>
+
+    <div class="section-label">Healthcare products</div>
+    <div><span class="kw-tag">healthcare product exporter India</span><span class="kw-tag">nutraceutical export India</span><span class="kw-tag">Ayurvedic product export India</span><span class="kw-tag">wellness product supplier India</span></div>
+
+    <div class="section-label">Industrial & bio-energy</div>
+    <div><span class="kw-tag">biochar exporter India</span><span class="kw-tag">bio-pellet supplier India</span><span class="kw-tag">industrial goods exporter Telangana</span><span class="kw-tag">mineral export India B2B</span></div>
+
+    <div class="section-label">Brand & trust keywords</div>
+    <div><span class="kw-tag">APEDA registered exporter India</span><span class="kw-tag">IEC certified exporter Hyderabad</span><span class="kw-tag">multi-sector Indian exporter</span><span class="kw-tag">InsectaTech Exports review</span><span class="kw-tag">sustainable exporter India</span></div>
+
+    <button class="prompt-btn" onclick="sendPrompt('Give me a full keyword research plan for InsectaTech Exports covering all 6 categories with search volumes and competition levels')">Get full keyword research plan ↗</button>
+  </div>
+
+  <!-- META TEMPLATES -->
+  <div id="meta" class="tab-pane">
+    <div class="card-body" style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1rem;line-height:1.6;">Ready-to-use meta titles and descriptions for your key pages. Keep titles under 60 chars and descriptions under 160 chars.</div>
+
+    <div class="section-label">Homepage</div>
+    <div class="meta-block">
+      <div class="mt">InsectaTech Exports | India's Multi-Sector Export Company</div>
+      <div class="md">Premium Indian exporter of agri commodities, animal feed, textiles, healthcare, industrial goods & bio-energy. APEDA, FSSAI & IEC certified. Global delivery.</div>
+    </div>
+
+    <div class="section-label">Agri commodities category page</div>
+    <div class="meta-block">
+      <div class="mt">Agri Commodities Export India | Rice & Maize DDGS Supplier</div>
+      <div class="md">Bulk export of Rice DDGS, Maize DDGS, grains, spices & pulses from India. APEDA certified. Competitive pricing, global shipping. Request a quote today.</div>
+    </div>
+
+    <div class="section-label">Animal feed ingredients page</div>
+    <div class="meta-block">
+      <div class="mt">Animal Feed Ingredients Export India | DDGS & BSFL Supplier</div>
+      <div class="md">High-protein animal feed ingredients including DDGS and Black Soldier Fly products. Sustainable, FSSAI-compliant. Exporting from India to global markets.</div>
+    </div>
+
+    <div class="section-label">Textiles page</div>
+    <div class="meta-block">
+      <div class="mt">Textile Export India | Fabric, Yarn & Garments B2B Supplier</div>
+      <div class="md">Wholesale textile export from India — fabrics, yarn, garments. EEPC certified. Reliable quality, competitive MOQ. Contact InsectaTech Exports for bulk orders.</div>
+    </div>
+
+    <div class="section-label">Bio-energy / biochar page</div>
+    <div class="meta-block">
+      <div class="mt">Biochar & Bio-energy Export India | Sustainable Supplier</div>
+      <div class="md">Export-quality biochar and bio-energy products from India. Eco-certified, sustainably produced. Supporting circular economy across agriculture and energy sectors.</div>
+    </div>
+
+    <div class="section-label">Certifications page</div>
+    <div class="meta-block">
+      <div class="mt">Export Certifications | FSSAI, APEDA, IEC, MPEDA — InsectaTech</div>
+      <div class="md">InsectaTech Exports holds FSSAI, IEC, APEDA, MPEDA, EEPC & Agmark certifications. Fully compliant Indian exporter. Download certificate details and verify credentials.</div>
+    </div>
+
+    <button class="prompt-btn" onclick="sendPrompt('Write meta titles and descriptions for InsectaTech Exports healthcare products page and industrial goods page')">Generate healthcare & industrial meta tags ↗</button>
+  </div>
+
+  <!-- CONTENT PLAN -->
+  <div id="content" class="tab-pane">
+    <div class="card-body" style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1rem;line-height:1.6;">A blog targets buyers at the research stage — before they shortlist suppliers. These topics cover all 6 of your categories and address real buyer questions.</div>
+
+    <div class="section-label">Month 1–2 — Foundation articles</div>
+    <div class="card">
+      <div class="card-title">🌾 "What is Rice DDGS and why are livestock farmers switching to it?"</div>
+      <div class="card-body">Targets: "Rice DDGS benefits", "DDGS for poultry feed", "DDGS vs soybean meal". High-intent buyers researching before purchase.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">⚡ "Biochar from India: applications, grades, and how to source it"</div>
+      <div class="card-body">Targets: "biochar supplier India", "biochar for agriculture", "biochar export India". Niche, low competition, global buyer interest.</div>
+    </div>
+
+    <div class="section-label">Month 3–4 — Trust & credibility content</div>
+    <div class="card">
+      <div class="card-title">📋 "How APEDA certification works and why it matters for Indian exporters"</div>
+      <div class="card-body">Positions InsectaTech as an authority. Buyers verifying supplier credentials will find and trust you.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">🌿 "Sustainable sourcing from India: the circular economy advantage"</div>
+      <div class="card-body">Targets ESG-conscious international buyers. Links naturally to BSFL company, biochar, frass fertilizer products.</div>
+    </div>
+
+    <div class="section-label">Month 5–6 — Category deep-dives</div>
+    <div class="card">
+      <div class="card-title">🧵 "Indian textile export guide: MOQ, fabric grades, and compliance in 2026"</div>
+      <div class="card-body">Targets international buyers new to sourcing from India. Generates enquiries from qualified leads.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">💊 "Exporting healthcare products from India: regulations, certifications & partners"</div>
+      <div class="card-body">Targets pharma/wellness importers looking for Indian suppliers. FSSAI compliance angle builds trust.</div>
+    </div>
+
+    <button class="prompt-btn" onclick="sendPrompt('Write a full SEO-optimized blog article: What is Rice DDGS and why are livestock farmers switching to it? Target keyword: Rice DDGS exporter India')">Write the Rice DDGS article now ↗</button>
+  </div>
+
+  <!-- LINK BUILDING -->
+  <div id="links" class="tab-pane">
+    <div class="section-label">B2B directories — submit immediately (free)</div>
+    <div class="card">
+      <div class="card-title"><span class="badge b-green">High priority</span> IndiaMART & TradeIndia</div>
+      <div class="card-body">Create fully filled profiles with all 6 product categories, certifications, MOQ, and photos. These rank on page 1 for most Indian export queries and drive direct leads — before your own site even ranks.</div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="badge b-green">High priority</span> Alibaba.com supplier profile</div>
+      <div class="card-body">Essential for reaching international buyers across all your categories. List each product category separately with proper HS codes, specs, and certifications uploaded.</div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="badge b-blue">Medium priority</span> APEDA & MPEDA directories</div>
+      <div class="card-body">Official government export directories. Being listed here provides an authoritative backlink and appears in buyer verification searches. Contact APEDA to ensure your listing is complete.</div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="badge b-blue">Medium priority</span> ExportHub, GlobalSources, EC21</div>
+      <div class="card-body">Secondary B2B platforms that provide additional backlinks and exposure in markets like Southeast Asia, Middle East, and Europe.</div>
+    </div>
+
+    <div class="section-label">Content-based link earning</div>
+    <div class="card">
+      <div class="card-title"><span class="badge b-purple">Long term</span> Guest articles on agri-tech & trade media</div>
+      <div class="card-body">Pitch articles to publications like AgriBusiness Global, Feed & Grain Magazine, or The Hindu BusinessLine on topics like "circular economy in Indian agri exports" or "rise of insect protein in Asia". These earn authoritative backlinks and brand visibility.</div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="badge b-purple">Long term</span> BSFL company cross-linking</div>
+      <div class="card-body">Your BSFL company website should link to InsectaTech Exports (and vice versa) on relevant pages. This is a free, high-authority internal network link that helps both domains rank faster.</div>
+    </div>
+  </div>
+
+  <!-- ROADMAP -->
+  <div id="roadmap" class="tab-pane">
+    <div class="card">
+      <div class="section-label" style="margin-top:0;">Phase 1 — Weeks 1–3: Technical foundation</div>
+      <div class="phase-row"><div class="phase-num">1</div><div><div style="font-size:13px;font-weight:500;">Fix JS rendering (SSR/pre-rendering)</div><div style="font-size:12px;color:var(--color-text-secondary);">Developer task — most critical, blocks everything else</div></div><span class="badge b-red" style="margin-left:auto;">Week 1</span></div>
+      <div class="phase-row"><div class="phase-num">2</div><div><div style="font-size:13px;font-weight:500;">Set up Google Search Console + submit sitemap</div><div style="font-size:12px;color:var(--color-text-secondary);">Free tool — takes 30 mins</div></div><span class="badge b-red" style="margin-left:auto;">Week 1</span></div>
+      <div class="phase-row"><div class="phase-num">3</div><div><div style="font-size:13px;font-weight:500;">Add unique titles & meta descriptions to all pages</div><div style="font-size:12px;color:var(--color-text-secondary);">Use templates from the Meta tab above</div></div><span class="badge b-red" style="margin-left:auto;">Week 2</span></div>
+      <div class="phase-row"><div class="phase-num">4</div><div><div style="font-size:13px;font-weight:500;">Create certifications page + add schema markup</div><div style="font-size:12px;color:var(--color-text-secondary);">Organization + Product JSON-LD on all pages</div></div><span class="badge b-amber" style="margin-left:auto;">Week 3</span></div>
+    </div>
+
+    <div class="card">
+      <div class="section-label" style="margin-top:0;">Phase 2 — Month 2: Content & structure</div>
+      <div class="phase-row"><div class="phase-num">5</div><div><div style="font-size:13px;font-weight:500;">Build individual product pages for top 10 products</div><div style="font-size:12px;color:var(--color-text-secondary);">Rice DDGS, Maize DDGS, biochar, BSFL, top textiles, etc.</div></div><span class="badge b-amber" style="margin-left:auto;">Month 2</span></div>
+      <div class="phase-row"><div class="phase-num">6</div><div><div style="font-size:13px;font-weight:500;">Publish first 2 blog articles</div><div style="font-size:12px;color:var(--color-text-secondary);">Rice DDGS guide + biochar sourcing guide</div></div><span class="badge b-amber" style="margin-left:auto;">Month 2</span></div>
+      <div class="phase-row"><div class="phase-num">7</div><div><div style="font-size:13px;font-weight:500;">Submit to IndiaMART, TradeIndia, Alibaba</div><div style="font-size:12px;color:var(--color-text-secondary);">All 6 categories, full profiles</div></div><span class="badge b-amber" style="margin-left:auto;">Month 2</span></div>
+    </div>
+
+    <div class="card">
+      <div class="section-label" style="margin-top:0;">Phase 3 — Month 3–6: Growth & authority</div>
+      <div class="phase-row"><div class="phase-num">8</div><div><div style="font-size:13px;font-weight:500;">2 blog articles per month consistently</div><div style="font-size:12px;color:var(--color-text-secondary);">Covering all 6 categories in rotation</div></div><span class="badge b-green" style="margin-left:auto;">Ongoing</span></div>
+      <div class="phase-row"><div class="phase-num">9</div><div><div style="font-size:13px;font-weight:500;">Cross-link BSFL company ↔ InsectaTech Exports</div><div style="font-size:12px;color:var(--color-text-secondary);">Mutual authority transfer between both domains</div></div><span class="badge b-green" style="margin-left:auto;">Month 3</span></div>
+      <div class="phase-row"><div class="phase-num">10</div><div><div style="font-size:13px;font-weight:500;">Pitch guest articles to agri-trade publications</div><div style="font-size:12px;color:var(--color-text-secondary);">Target 1–2 high-authority backlinks per month</div></div><span class="badge b-green" style="margin-left:auto;">Month 4–6</span></div>
+    </div>
+
+    <button class="prompt-btn" onclick="sendPrompt('Write the JSON-LD Organization schema markup for InsectaTech Exports homepage with all certifications included')">Generate homepage schema markup ↗</button>
+  </div>
+
+</div>
+
+<script>
+function show(id){
+  document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>

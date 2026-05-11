@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import useScrollReveal from '../hooks/useScrollReveal';
 
 const Products = () => {
@@ -39,6 +40,36 @@ const Products = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Export Products | Agri, Animal Feed, Bio-Energy, Textiles & More — InsectaTech Exports</title>
+        <meta name="description" content="Explore InsectaTech Exports' product portfolio: Rice DDGS, Maize DDGS, biochar, BSFL protein, cotton textiles, Ayurvedic healthcare products & industrial goods. APEDA & FSSAI certified. Request a quote." />
+        <link rel="canonical" href="https://insectatechexports.com/products" />
+        <meta property="og:url" content="https://insectatechexports.com/products" />
+        <meta property="og:title" content="Export Products | InsectaTech Exports — 6 Sector Portfolio" />
+        <meta property="og:description" content="Rice DDGS, biochar, BSFL protein, textiles & more — 6 export categories from India. APEDA & FSSAI certified. B2B bulk orders welcome." />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://insectatechexports.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://insectatechexports.com/products" }
+          ]
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "InsectaTech Exports — Product Categories",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Agri Commodities & Food", "url": "https://insectatechexports.com/products#agri", "description": "Basmati rice, spices, pulses, sugar — APEDA certified export from India" },
+            { "@type": "ListItem", "position": 2, "name": "Animal Feed Ingredients", "url": "https://insectatechexports.com/products#feed", "description": "Rice DDGS, Maize DDGS, BSF Larvae, BSF Meal — protein-rich feed solutions" },
+            { "@type": "ListItem", "position": 3, "name": "Bio-Energy & Organic Fertilizers", "url": "https://insectatechexports.com/products#bioenergy", "description": "Biochar, biomass pellets, biodiesel, frass fertilizer from India" },
+            { "@type": "ListItem", "position": 4, "name": "Engineering & Industrial Goods", "url": "https://insectatechexports.com/products#engineering", "description": "Lac bangles, industrial components, metal castings — Indian manufacturing" },
+            { "@type": "ListItem", "position": 5, "name": "Textiles & Apparel", "url": "https://insectatechexports.com/products#textiles", "description": "Cotton, yarn, woven fabrics, garments — India textile export B2B" },
+            { "@type": "ListItem", "position": 6, "name": "Healthcare & Wellness", "url": "https://insectatechexports.com/products#healthcare", "description": "Ayurvedic products, herbal medicines, dietary supplements, essential oils" }
+          ]
+        })}</script>
+      </Helmet>
+
       <style>{`
         .product-nav {
           display: flex;

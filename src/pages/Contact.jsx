@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import useScrollReveal from '../hooks/useScrollReveal';
 
 const Contact = () => {
@@ -42,6 +43,48 @@ const Contact = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Contact InsectaTech Exports | Get a Quote — Hyderabad, India</title>
+        <meta name="description" content="Contact InsectaTech Exports for bulk export inquiries. Call +91 73966 00115 or email info@insectatechexports.com. Hyderabad-based multi-sector export company. Response within 24 hours." />
+        <link rel="canonical" href="https://insectatechexports.com/contact" />
+        <meta property="og:url" content="https://insectatechexports.com/contact" />
+        <meta property="og:title" content="Contact InsectaTech Exports | Get a Bulk Export Quote" />
+        <meta property="og:description" content="Reach InsectaTech Exports for agri, animal feed, textiles & bio-energy inquiries. +91 73966 00115 | info@insectatechexports.com | Hyderabad, India." />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "InsectaTech Exports",
+          "url": "https://insectatechexports.com",
+          "telephone": "+91-73966-00115",
+          "email": "info@insectatechexports.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Cherlapally Industrial Area",
+            "addressLocality": "Hyderabad",
+            "addressRegion": "Telangana",
+            "postalCode": "500051",
+            "addressCountry": "IN"
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          },
+          "priceRange": "$$",
+          "currenciesAccepted": "USD, EUR, INR",
+          "paymentAccepted": "Bank Transfer, LC, TT"
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://insectatechexports.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://insectatechexports.com/contact" }
+          ]
+        })}</script>
+      </Helmet>
+
       <section className="page-header">
         <div className="container">
           <div className="breadcrumb reveal">

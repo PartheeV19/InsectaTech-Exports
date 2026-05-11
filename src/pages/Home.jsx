@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import useScrollReveal from '../hooks/useScrollReveal';
 import GlobeComponent from '../components/GlobeComponent';
 
@@ -97,6 +98,27 @@ const Home = ({ isPreloading }) => {
 
   return (
     <>
+      <Helmet>
+        <title>InsectaTech Exports | India's Multi-Sector Export Company</title>
+        <meta name="description" content="Premium Indian exporter of agri commodities, animal feed ingredients, bio-energy, textiles, healthcare & industrial goods. APEDA, FSSAI & IEC certified. Global delivery from Hyderabad." />
+        <link rel="canonical" href="https://insectatechexports.com/" />
+        <link rel="preload" as="image" href="/main.jpg" fetchpriority="high" />
+        <meta property="og:url" content="https://insectatechexports.com/" />
+        <meta property="og:title" content="InsectaTech Exports | India's Multi-Sector Export Company" />
+        <meta property="og:description" content="Premium Indian exporter of agri commodities, animal feed, textiles, healthcare & bio-energy. APEDA, FSSAI & IEC certified." />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "InsectaTech Exports",
+          "url": "https://insectatechexports.com",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://insectatechexports.com/products?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        })}</script>
+      </Helmet>
+
       {/* HERO SECTION */}
       <section className="hero section" id="hero" ref={heroRef}>
         <div className="container">
@@ -124,7 +146,7 @@ const Home = ({ isPreloading }) => {
             </div>
             <div className="hero-visual">
               <div className="hero-image-wrapper">
-                <img src="/main.jpg" alt="InsectaTech Exports Global Presence" />
+                <img src="/main.jpg" alt="InsectaTech Exports — Premium Indian Export Company connecting India's finest to global markets" fetchPriority="high" loading="eager" width="800" height="600" />
               </div>
               <div className="hero-floating-badge">
                 <div className="badge-icon">

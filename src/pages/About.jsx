@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import useScrollReveal from '../hooks/useScrollReveal';
 
 const About = () => {
@@ -6,6 +7,23 @@ const About = () => {
 
   return (
     <>
+      <Helmet>
+        <title>About Us | InsectaTech Exports — Hyderabad's Trusted Export House</title>
+        <meta name="description" content="Learn about InsectaTech Exports — a Hyderabad-based multi-sector export company with FSSAI, IEC & APEDA certifications. Exporting agri commodities, animal feed, textiles & more to 10+ countries." />
+        <link rel="canonical" href="https://insectatechexports.com/about" />
+        <meta property="og:url" content="https://insectatechexports.com/about" />
+        <meta property="og:title" content="About InsectaTech Exports | Certified Indian Export Company" />
+        <meta property="og:description" content="Hyderabad-based multi-sector export house with FSSAI, IEC & APEDA certifications. Serving 10+ countries across agriculture, textiles, bio-energy & more." />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://insectatechexports.com/" },
+            { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://insectatechexports.com/about" }
+          ]
+        })}</script>
+      </Helmet>
+
       <section className="page-header">
         <div className="container">
           <div className="breadcrumb reveal">
